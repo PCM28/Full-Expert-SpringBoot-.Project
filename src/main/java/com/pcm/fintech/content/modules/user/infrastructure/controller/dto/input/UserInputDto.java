@@ -1,7 +1,5 @@
 package com.pcm.fintech.content.modules.user.infrastructure.controller.dto.input;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 //import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -18,9 +16,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInputDto {
-    @Id
-    @GeneratedValue
-    private Long id;
 
     @NotBlank(message = "Not empty name")
     @Size(min = 2, max = 50,message = "Firstname must have 2 - 50 characters")
@@ -54,8 +49,8 @@ public class UserInputDto {
     @Email(message = "Invalid Email")
     private String email;
 
-    @NotNull(message = "Not empty phone")
-    private String phone;
+    @NotNull(message = "Not empty mobile number")
+    private String mobileNumber;
 
     @URL(message = "Invalid linked url")
     private String linkedinUrl;

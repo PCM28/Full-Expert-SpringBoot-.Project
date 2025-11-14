@@ -24,7 +24,7 @@ public class UserOutputDto {
     private Integer yearsOfExperience;
     private BigDecimal amount;
     private String email;
-    private String phone;
+    private String mobileNumber;
     private String linkedinUrl;
     private String githubUrl;
     private String socialMediaUrl;
