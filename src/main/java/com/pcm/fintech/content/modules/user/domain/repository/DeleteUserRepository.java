@@ -1,5 +1,5 @@
 package com.pcm.fintech.content.modules.user.domain.repository;
 
 public interface DeleteUserRepository {
-    void deleteById(Long id);
+    void deleteUserById(Long id);
 }
