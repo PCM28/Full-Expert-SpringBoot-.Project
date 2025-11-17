@@ -1,10 +1,8 @@
 package com.pcm.fintech.content.modules.user.infrastructure.controller;
 
-import com.pcm.fintech.content.modules.user.application.mapper.UserMapper;
 import com.pcm.fintech.content.modules.user.application.usecase.UpdateUserUseCase;
-import com.pcm.fintech.content.modules.user.domain.entity.User;
-import com.pcm.fintech.content.modules.user.infrastructure.controller.dto.input.UserInputDto;
-import com.pcm.fintech.content.modules.user.infrastructure.controller.dto.output.UserOutputDto;
+import com.pcm.fintech.content.modules.user.infrastructure.dto.input.UserInputDto;
+import com.pcm.fintech.content.modules.user.infrastructure.dto.output.UserOutputDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

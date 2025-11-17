@@ -1,4 +1,4 @@
-package com.pcm.fintech.content.modules.user.infrastructure.controller.dto.input;
+package com.pcm.fintech.content.modules.user.infrastructure.dto.input;
 
 //import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;

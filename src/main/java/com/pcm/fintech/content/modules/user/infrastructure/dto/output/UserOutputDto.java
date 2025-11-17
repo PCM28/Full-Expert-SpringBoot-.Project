@@ -1,4 +1,4 @@
-package com.pcm.fintech.content.modules.user.infrastructure.controller.dto.output;
+package com.pcm.fintech.content.modules.user.infrastructure.dto.output;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

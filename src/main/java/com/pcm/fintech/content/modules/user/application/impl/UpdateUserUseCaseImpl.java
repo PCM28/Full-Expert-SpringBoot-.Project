@@ -5,8 +5,8 @@ import com.pcm.fintech.content.modules.user.application.usecase.UpdateUserUseCas
 import com.pcm.fintech.content.modules.user.domain.entity.User;
 import com.pcm.fintech.content.modules.user.domain.repository.FindUserDetailRepository;
 import com.pcm.fintech.content.modules.user.domain.repository.UpdateUserRepository;
-import com.pcm.fintech.content.modules.user.infrastructure.controller.dto.input.UserInputDto;
-import com.pcm.fintech.content.modules.user.infrastructure.controller.dto.output.UserOutputDto;
+import com.pcm.fintech.content.modules.user.infrastructure.dto.input.UserInputDto;
+import com.pcm.fintech.content.modules.user.infrastructure.dto.output.UserOutputDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

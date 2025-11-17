@@ -4,7 +4,7 @@ import com.pcm.fintech.content.modules.user.application.mapper.UserMapper;
 import com.pcm.fintech.content.modules.user.application.usecase.ListUserUseCase;
 import com.pcm.fintech.content.modules.user.domain.entity.User;
 import com.pcm.fintech.content.modules.user.domain.repository.ListUserRepository;
-import com.pcm.fintech.content.modules.user.infrastructure.controller.dto.output.UserOutputDto;
+import com.pcm.fintech.content.modules.user.infrastructure.dto.output.UserOutputDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
