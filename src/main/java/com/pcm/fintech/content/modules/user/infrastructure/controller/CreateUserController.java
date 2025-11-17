@@ -18,13 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class CreateUserController {
     private final CreateUserUseCase createUserUseCase;
-    private final UserMapper userMapper;
 
     @PostMapping("/create")
     public ResponseEntity<UserOutputDto> create(@Valid @RequestBody UserInputDto userInputDto) {
-        User user = userMapper.userInputDtoToUser(userInputDto);
-        User created = createUserUseCase.addUser(user);
-        UserOutputDto userOutputDto = userMapper.userToUserOutputDto(created);
+        UserOutputDto userOutputDto = createUserUseCase.addUser(userInputDto);
         return ResponseEntity.ok().body(userOutputDto);
     }
 }

@@ -6,6 +6,7 @@ import com.pcm.fintech.content.modules.user.domain.entity.User;
 import com.pcm.fintech.content.modules.user.infrastructure.controller.dto.output.UserOutputDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,11 +17,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ListUserController {
     private final ListUserUseCase listUserUseCase;
-    private final UserMapper userMapper;
 
+    @GetMapping
     public ResponseEntity<List<UserOutputDto>> listUsers() {
-        List<User> users = listUserUseCase.listUsers();
-        List<UserOutputDto> userOutputDtos = users.stream().map(userMapper::userToUserOutputDto).toList();
+        List<UserOutputDto> userOutputDtos = listUserUseCase.listUsers();
         return ResponseEntity.ok(userOutputDtos);
     }
 }

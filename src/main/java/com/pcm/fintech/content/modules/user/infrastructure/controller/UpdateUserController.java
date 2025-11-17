@@ -14,20 +14,13 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UpdateUserController {
     private final UpdateUserUseCase updateUserUseCase;
-    private final UserMapper userMapper;
 
     @PutMapping("/{id}")
     public ResponseEntity<UserOutputDto> updateUser(
             @PathVariable Long id,
             @RequestBody UserInputDto userInputDto
             ) {
-        // DTO -> Domain
-        User user = userMapper.userInputDtoToUser(userInputDto);
-        // Use Case
-        User updatedUser = updateUserUseCase.updateUser(id, user);
-        // Domain -DTO
-        UserOutputDto userOutputDto = userMapper.userToUserOutputDto(updatedUser);
-
+        UserOutputDto userOutputDto = updateUserUseCase.updateUser(id, userInputDto);
         return ResponseEntity.ok(userOutputDto);
     }
 }

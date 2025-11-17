@@ -17,12 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class FindUserDetailController {
     private final FindUserDetailUseCase findUserDetailUseCase;
-    private final UserMapper userMapper;
 
     @GetMapping("/{id}")
     public ResponseEntity<UserOutputDto> getUserById(@PathVariable Long id) {
-        User user = findUserDetailUseCase.getUserById(id);
-        UserOutputDto userOutputDto = userMapper.userToUserOutputDto(user);
+        UserOutputDto userOutputDto = findUserDetailUseCase.getUserById(id);
         return ResponseEntity.ok(userOutputDto);
     }
 }
