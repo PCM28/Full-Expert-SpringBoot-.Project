@@ -3,6 +3,7 @@ package com.pcm.fintech.content.modules.user.application.impl;
 import com.pcm.fintech.content.modules.user.application.mapper.UserMapper;
 import com.pcm.fintech.content.modules.user.application.usecase.CreateUserUseCase;
 import com.pcm.fintech.content.modules.user.domain.entity.User;
+import com.pcm.fintech.content.modules.user.domain.exception.TermsNotAcceptedException;
 import com.pcm.fintech.content.modules.user.domain.repository.CreateUserRepository;
 import com.pcm.fintech.content.modules.user.infrastructure.dto.input.UserInputDto;
 import com.pcm.fintech.content.modules.user.infrastructure.dto.output.UserOutputDto;
@@ -21,10 +22,14 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     public UserOutputDto addUser(UserInputDto userInputDto) {
 
         User user = userMapper.userInputDtoToUser(userInputDto);
-        // Regla de negocio: email único
+        // Reglas de negocio: email único, termsAndconditions must be accepted
         //if (existsUserByEmailRepository.existsByEmail(user.getEmail())) {
         //    throw new EmailAlreadyExistsException(user.getEmail());
         //}
+        if (Boolean.FALSE.equals(userInputDto.getTermsAccepted())) {
+            throw new TermsNotAcceptedException();
+        }
+
         User saved = createUserRepository.create(user);
         return userMapper.userToUserOutputDto(saved);
     }
