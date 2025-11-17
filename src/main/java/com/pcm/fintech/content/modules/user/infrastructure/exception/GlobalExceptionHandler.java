@@ -71,4 +71,15 @@ public class GlobalExceptionHandler {
         ApiErrorResponse body = buildError(HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error: " + ex.getMessage(), "INTERNAL_ERROR", request);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
     }
+
+    /* - Extra -
+    // 2) Email ya existe (Create / Update)
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<ApiErrorResponse> handleEmailAlreadyExists(
+            EmailAlreadyExistsException ex,
+            HttpServletRequest request
+    ) {
+        var body = buildError(HttpStatus.CONFLICT, ex.getMessage(), "EMAIL_ALREADY_EXISTS", request);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
+    } */
 }
