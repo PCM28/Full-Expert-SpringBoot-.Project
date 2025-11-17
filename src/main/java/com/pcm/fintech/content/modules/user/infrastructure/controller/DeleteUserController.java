@@ -1,3 +1,3 @@
 package com.pcm.fintech.content.modules.user.infrastructure.controller;
 
-public class DeleteController {}
+public class DeleteUserController {}

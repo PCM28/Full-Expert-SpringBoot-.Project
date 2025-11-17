@@ -1,3 +1,8 @@
 package com.pcm.fintech.content.modules.user.domain.repository;
 
-public interface CreateUserRepository {}
+import com.pcm.fintech.content.modules.user.domain.entity.User;
+
+public interface CreateUserRepository {
+    User create(User user); //throws NotFoundException <- ver si van así o con un global exception
+    //Esto para otro usecase, también pude haber un 6th useCase: Booleab existsByEmail(String email);
+}
