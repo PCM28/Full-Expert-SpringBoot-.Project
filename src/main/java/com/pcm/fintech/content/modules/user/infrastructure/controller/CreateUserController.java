@@ -22,8 +22,9 @@ public class CreateUserController {
 
     @PostMapping("/create")
     public ResponseEntity<UserOutputDto> create(@Valid @RequestBody UserInputDto userInputDto) {
-        User user = createUserUseCase.addUser(userInputDto);
-        UserOutputDto userOutputDto = userMapper.userToUserOutputDto(user);
+        User user = userMapper.userInputDtoToUser(userInputDto);
+        User created = createUserUseCase.addUser(user);
+        UserOutputDto userOutputDto = userMapper.userToUserOutputDto(created);
         return ResponseEntity.ok().body(userOutputDto);
     }
 }

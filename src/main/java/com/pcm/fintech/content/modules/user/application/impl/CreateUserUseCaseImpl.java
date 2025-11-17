@@ -13,11 +13,14 @@ import org.springframework.stereotype.Service;
 public class CreateUserUseCaseImpl implements CreateUserUseCase {
 
     private final CreateUserRepository createUserRepository;
-    private final UserMapper userMapper;
+    // private final ExistsUserByEmailRepository existsUserByEmailRepository;
 
     @Override
-    public User addUser(UserInputDto userInputDto) {
-        User user = userMapper.userInputDtoToUser(userInputDto); // Entre estas 2 líneas puedo añadir otro método que verifique una reserva y otro campo
+    public User addUser(User user) {
+        // Regla de negocio: email único
+        //if (existsUserByEmailRepository.existsByEmail(user.getEmail())) {
+        //    throw new EmailAlreadyExistsException(user.getEmail());
+        //}
         return createUserRepository.create(user);
     }
 }
